@@ -19,6 +19,7 @@ class EventListener implements Listener
 
     public function onTap(PlayerInteractEvent $event)
     {
+        if ($event->getAction() !== PlayerInteractEvent::RIGHT_CLICK_BLOCK) return;//右クリック(タッチ)以外だったら終了
         $player = $event->getPlayer();
         $blockid = $event->getBlock()->getId();
         switch ($blockid){
